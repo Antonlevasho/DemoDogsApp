@@ -14,7 +14,6 @@
 		5D79E4442B8CB48300A37687 /* DemoDogsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D79E4422B8CB48300A37687 /* DemoDogsApp.xcdatamodeld */; };
 		5D79E4462B8CB48600A37687 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D79E4452B8CB48600A37687 /* Assets.xcassets */; };
 		5D79E4492B8CB48600A37687 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D79E4472B8CB48600A37687 /* LaunchScreen.storyboard */; };
-		5D79E4512B8CCFAA00A37687 /* ApiManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79E4502B8CCFAA00A37687 /* ApiManager .swift */; };
 		5D79E4532B8CD1D000A37687 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79E4522B8CD1D000A37687 /* Model.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		5D79E4452B8CB48600A37687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D79E4482B8CB48600A37687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D79E44A2B8CB48600A37687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D79E4502B8CCFAA00A37687 /* ApiManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiManager .swift"; sourceTree = "<group>"; };
 		5D79E4522B8CD1D000A37687 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +63,6 @@
 				5D79E4392B8CB48300A37687 /* AppDelegate.swift */,
 				5D79E43B2B8CB48300A37687 /* SceneDelegate.swift */,
 				5D79E43D2B8CB48300A37687 /* ViewController.swift */,
-				5D79E4502B8CCFAA00A37687 /* ApiManager .swift */,
 				5D79E4522B8CD1D000A37687 /* Model.swift */,
 				5D79E43F2B8CB48300A37687 /* Main.storyboard */,
 				5D79E4452B8CB48600A37687 /* Assets.xcassets */,
@@ -151,7 +148,6 @@
 				5D79E43A2B8CB48300A37687 /* AppDelegate.swift in Sources */,
 				5D79E43C2B8CB48300A37687 /* SceneDelegate.swift in Sources */,
 				5D79E4532B8CD1D000A37687 /* Model.swift in Sources */,
-				5D79E4512B8CCFAA00A37687 /* ApiManager .swift in Sources */,
 				5D79E4442B8CB48300A37687 /* DemoDogsApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

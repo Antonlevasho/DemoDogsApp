@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        
         setupTableView()
-        
+        fetchData(URL: "https://dog.ceo/api/breeds/list/all") { result in
+            print(result)
+        }
     }
     
     func setupTableView() {
@@ -33,10 +33,29 @@ class ViewController: UIViewController {
         
         
     }
+    
+    func fetchData(URL url: String, complition: @escaping ([DogBreeds]) -> Void) {
+        
+        let url = URL(string: url)
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: url!) { data, response, error in
+            if data != nil && error == nil {
+                
+                do {
+                let parsingData = try JSONDecoder().decode([DogBreeds].self, from: data!)
+                    complition(parsingData)
+                } catch {
+                    print("Parsing error")
+                }
+        }
+        
+        }
+        dataTask.resume()
 
 
 }
 
+}
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     

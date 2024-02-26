@@ -11,4 +11,9 @@ import Foundation
 
 struct DogBreeds: Codable {
     let message: [String: [String]]
+    let status: String
 }
+
+//struct DogBreeds: Codable {
+//    let message: [String: [String]]
+//}
