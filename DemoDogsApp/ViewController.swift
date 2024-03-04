@@ -15,10 +15,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
-        fetchData(URL: "https://dog.ceo/api/breeds/list/all") { result in
-            print(result)
-        }
-    }
+        fetchData()
+        
+            }
     
     func setupTableView() {
         view.addSubview(tableView)
@@ -34,23 +33,24 @@ class ViewController: UIViewController {
         
     }
     
-    func fetchData(URL url: String, complition: @escaping ([DogBreeds]) -> Void) {
+    func fetchData() {
+        let urlString = "https://dog.ceo/api/breeds/list/all"
         
-        let url = URL(string: url)
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: url!) { data, response, error in
-            if data != nil && error == nil {
-                
-                do {
-                let parsingData = try JSONDecoder().decode([DogBreeds].self, from: data!)
-                    complition(parsingData)
-                } catch {
-                    print("Parsing error")
-                }
-        }
+        guard let url = URL(string: urlString) else { return }
         
-        }
-        dataTask.resume()
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            let jsonString = String(data: data, encoding: .utf8)
+            print(jsonString)
+
+        }.resume()
+        
 
 
 }
