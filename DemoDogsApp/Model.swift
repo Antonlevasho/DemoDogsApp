@@ -9,11 +9,9 @@ import Foundation
 
 // Создаем структуру для хранения данных о породах собак
 
-struct DogsBreed: Codable {
-    let message: [String: [String]]
-    let status: String
+
+struct DogsBreed: Decodable {
+    let message: [String: [String]]?
+    let status: String?
 }
 
-//struct DogBreeds: Codable {
-//    let message: [String: [String]]
-//}

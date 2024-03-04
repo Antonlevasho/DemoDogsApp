@@ -46,8 +46,16 @@ class ViewController: UIViewController {
             
             guard let data = data else { return }
             
-            let jsonString = String(data: data, encoding: .utf8)
-            print(jsonString)
+//            let jsonString = String(data: data, encoding: .utf8)
+//            print(jsonString)
+            
+            do {
+                let bread = try JSONDecoder().decode([DogsBreed].self, from: data)
+                print(bread.first?.message)
+            } catch {
+                print(error)
+            }
+           
 
         }.resume()
         
