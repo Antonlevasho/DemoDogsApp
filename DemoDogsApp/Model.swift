@@ -11,7 +11,7 @@ import Foundation
 
 
 struct DogsBreed: Decodable {
-    let message: [String: [String]]?
-    let status: String?
+    let message: [String: [String]]
+    let status: String
 }
 
