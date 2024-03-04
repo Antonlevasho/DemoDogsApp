@@ -14,11 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        
         setupTableView()
+        fetchData()
         
-    }
+            }
     
     func setupTableView() {
         view.addSubview(tableView)
@@ -33,10 +32,36 @@ class ViewController: UIViewController {
         
         
     }
+    
+    func fetchData() {
+        let urlString = "https://dog.ceo/api/breeds/list/all"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            
+            do {
+                let bread = try JSONDecoder().decode([DogsBreed].self, from: data)
+                print(bread.first?.message)
+            } catch {
+                print(error)
+            }
+           
+
+        }.resume()
+        
 
 
 }
 
+}
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
