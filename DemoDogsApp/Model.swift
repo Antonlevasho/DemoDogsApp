@@ -7,15 +7,23 @@
 
 import Foundation
 
-// Создаем структуру для хранения данных о породах собак
+//MARK: -Создаем структуру для хранения данных о породах собак
 
+
+struct BreedDetails: Identifiable, Decodable {
+    let id: UUID
+    let name: String
+    let temperament: String
+    let lifeSpan: String
+    let max_life_expectancy: Int
+    let max_height_male: Int
+    // Добавьте другие свойства, если необходимо
+}
 
 struct DogBreeds: Decodable {
+    
     let message: [String: [String]]
     let status: String
 }
-//extension DogsBreed {
-//    init(data: Data) throws {
-//        self = try JSONDecoder().decode(DogsBreed.self, from: data)
-//    }
-//}
+
+
