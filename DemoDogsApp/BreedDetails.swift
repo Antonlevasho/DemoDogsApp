@@ -12,7 +12,8 @@ import Foundation
 class BreedDetailService {
 
 func fetchBreedDetails(breedName: String, completion: @escaping (Result<BreedDetails, Error>) -> Void) {
-    let urlString = "https://api.api-ninjas.com/v1/dogs?name=\(breedName)"
+    
+    let urlString = "https://dog.ceo/api/breed/\(breedName)/list"
     guard let url = URL(string: urlString) else {
         completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
         return

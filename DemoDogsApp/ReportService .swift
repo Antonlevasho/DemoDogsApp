@@ -11,6 +11,7 @@ import Foundation
 class ReportService {
 
 func fetchDogBreeds(completion: @escaping (Result<DogBreeds, Error>) -> Void) {
+    
     let urlString = "https://dog.ceo/api/breeds/list/all"
     guard let url = URL(string: urlString) else {
         completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))

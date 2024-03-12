@@ -11,10 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     let tableView = UITableView()
+    
     var data: DogBreeds?
     var detailData: BreedDetails?
     
     var reportService = ReportService()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +37,13 @@ class ViewController: UIViewController {
                 print("Error fetching dog breeds: \(error)")
             }
         }
+        
+        
 
     }
 
     func setupTableView() {
+        
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
@@ -52,11 +57,10 @@ class ViewController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     }
 
-   @objc func openDetails() {
+    func openDetails(for breed: String) {
 
-        let detailModel = detailData
         let detailVC = DetailViewController()
-        detailVC.detailModel = detailModel
+        detailVC.breed = breed
 
         navigationController?.pushViewController(detailVC, animated: true)
 
@@ -65,7 +69,14 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return openDetails()
+
+       let cell = tableView.cellForRow(at: indexPath)
+        let breed = cell?.textLabel?.text
+        guard let breed = breed else {
+            return
+        }
+        openDetails(for: breed)
+        
     }
 }
 

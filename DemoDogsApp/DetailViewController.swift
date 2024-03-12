@@ -10,47 +10,98 @@ import UIKit
 //MARK: - второй экрна
 
 class DetailViewController: UIViewController {
-    
+//    
     let breedDetailService = BreedDetailService()
     var detailModel: BreedDetails?
+    var breed: String?
     
+//    
     
-    let nameLabel = UILabel()
+    let tableView = UITableView()
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .blue
         
-        view.backgroundColor = .white
-        setupLabel()
+                setupTableView()
         
         
-        let example = "Golden Retriever"
-        breedDetailService.fetchBreedDetails(breedName: example) { result in
+        
+        guard let breed = breed else {
+            return
+        }
+        title = breed
+        
+        
+        breedDetailService.fetchBreedDetails(breedName: breed) { result in
             switch result {
             case .success(let details):
-                print("Breed details for Golden Retriever:")
-                print("Life expectancy: \(details.max_life_expectancy) years")
-                print("Height (male): \(details.max_height_male) inches")
-                // Add more properties as needed
+                self.detailModel = details
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                print("Breed details for Golden Retriever:", details)
             case .failure(let error):
                 print("Error fetching breed details: \(error)")
             }
         }
         
         
-      
+        
     }
     
-    func setupLabel() {
+    func setupTableView() {
         
-        view.addSubview(nameLabel)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        //nameLabel.text = "cvxcvsdvr"
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         
-        nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+      
+        
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
 
+}
+
+extension DetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   
+    }
+}
+
+extension DetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let detailModel = detailModel {
+           if detailModel.message.count > 0 {
+                return detailModel.message.count
+           } else {
+               return 1           }
+        } else  {
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+     let cell = UITableViewCell()
+        
+        guard let detailModel = detailModel else {
+             cell.textLabel?.text = "error"
+            return cell
+        }
+        if detailModel.message.count > indexPath.row
+            {
+            let name = detailModel.message[indexPath.row]
+            cell.textLabel?.text = name
+        } else {
+            cell.textLabel?.text = "No breed"
+        }
+        return cell
+    }
 }
