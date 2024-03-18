@@ -9,17 +9,6 @@ import Foundation
 
 //MARK: -Создаем структуру для хранения данных о породах собак
 
-//
-//struct BreedDetails: Identifiable, Decodable {
-//    let id: UUID
-//    let name: String
-//    let temperament: String
-//    let lifeSpan: String
-//    let max_life_expectancy: Int
-//    let max_height_male: Int
-//    // Добавьте другие свойства, если необходимо
-//}
-
 struct DogBreeds: Decodable {
     
     let message: [String: [String]]
@@ -27,6 +16,11 @@ struct DogBreeds: Decodable {
 }
 
 struct BreedDetails: Decodable {
+    let message: [String]
+    let status: String
+}
+
+struct ImageDogs: Decodable {
     let message: [String]
     let status: String
 }
