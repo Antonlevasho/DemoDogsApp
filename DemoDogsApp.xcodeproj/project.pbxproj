@@ -17,6 +17,8 @@
 		5D7A1FA92B987C5A00FADCA8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A1FA82B987C5A00FADCA8 /* DetailViewController.swift */; };
 		5D7A1FAB2B987CFE00FADCA8 /* ReportService .swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A1FAA2B987CFD00FADCA8 /* ReportService .swift */; };
 		5D7A1FAD2B98812600FADCA8 /* BreedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A1FAC2B98812600FADCA8 /* BreedDetails.swift */; };
+		5D7DF3B02BAAE8B9004B562B /* extension VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DF3AF2BAAE8B9004B562B /* extension VC.swift */; };
+		5D7DF3B32BAAE94C004B562B /* extension DVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7DF3B22BAAE94C004B562B /* extension DVC.swift */; };
 		5DB9010F2BA18514006BBDF2 /* ImgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9010E2BA18514006BBDF2 /* ImgeViewController.swift */; };
 		5DB901152BA186DD006BBDF2 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB901142BA186DD006BBDF2 /* ImageService.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,8 @@
 		5D7A1FA82B987C5A00FADCA8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5D7A1FAA2B987CFD00FADCA8 /* ReportService .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReportService .swift"; sourceTree = "<group>"; };
 		5D7A1FAC2B98812600FADCA8 /* BreedDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetails.swift; sourceTree = "<group>"; };
+		5D7DF3AF2BAAE8B9004B562B /* extension VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension VC.swift"; sourceTree = "<group>"; };
+		5D7DF3B22BAAE94C004B562B /* extension DVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension DVC.swift"; sourceTree = "<group>"; };
 		5DB9010E2BA18514006BBDF2 /* ImgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgeViewController.swift; sourceTree = "<group>"; };
 		5DB901142BA186DD006BBDF2 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,16 +72,49 @@
 		5D79E4382B8CB48300A37687 /* DemoDogsApp */ = {
 			isa = PBXGroup;
 			children = (
-				5DB901132BA18585006BBDF2 /* model */,
-				5DB901122BA18571006BBDF2 /* services */,
-				5DB901112BA18554006BBDF2 /* scene */,
+				5DB901112BA18554006BBDF2 /* Application */,
+				5D7DF3AE2BAAE89F004B562B /* Core */,
+				5DB901132BA18585006BBDF2 /* API */,
 				5DB901102BA1853C006BBDF2 /* View */,
+				5D7DF3AC2BAAE4C7004B562B /* Resources */,
+			);
+			path = DemoDogsApp;
+			sourceTree = "<group>";
+		};
+		5D7DF3AC2BAAE4C7004B562B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5D79E4422B8CB48300A37687 /* DemoDogsApp.xcdatamodeld */,
 				5D79E4452B8CB48600A37687 /* Assets.xcassets */,
 				5D79E4472B8CB48600A37687 /* LaunchScreen.storyboard */,
 				5D79E44A2B8CB48600A37687 /* Info.plist */,
-				5D79E4422B8CB48300A37687 /* DemoDogsApp.xcdatamodeld */,
 			);
-			path = DemoDogsApp;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5D7DF3AD2BAAE545004B562B /* models */ = {
+			isa = PBXGroup;
+			children = (
+				5D79E4522B8CD1D000A37687 /* Model.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		5D7DF3AE2BAAE89F004B562B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5D7DF3B12BAAE8BD004B562B /* extension */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5D7DF3B12BAAE8BD004B562B /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				5D7DF3AF2BAAE8B9004B562B /* extension VC.swift */,
+				5D7DF3B22BAAE94C004B562B /* extension DVC.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		5DB901102BA1853C006BBDF2 /* View */ = {
@@ -90,13 +127,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		5DB901112BA18554006BBDF2 /* scene */ = {
+		5DB901112BA18554006BBDF2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				5D79E4392B8CB48300A37687 /* AppDelegate.swift */,
 				5D79E43B2B8CB48300A37687 /* SceneDelegate.swift */,
 			);
-			path = scene;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		5DB901122BA18571006BBDF2 /* services */ = {
@@ -109,12 +146,13 @@
 			path = services;
 			sourceTree = "<group>";
 		};
-		5DB901132BA18585006BBDF2 /* model */ = {
+		5DB901132BA18585006BBDF2 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				5D79E4522B8CD1D000A37687 /* Model.swift */,
+				5DB901122BA18571006BBDF2 /* services */,
+				5D7DF3AD2BAAE545004B562B /* models */,
 			);
-			path = model;
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,9 +229,11 @@
 				5D79E43E2B8CB48300A37687 /* ViewController.swift in Sources */,
 				5D79E43A2B8CB48300A37687 /* AppDelegate.swift in Sources */,
 				5D79E43C2B8CB48300A37687 /* SceneDelegate.swift in Sources */,
+				5D7DF3B02BAAE8B9004B562B /* extension VC.swift in Sources */,
 				5D7A1FAB2B987CFE00FADCA8 /* ReportService .swift in Sources */,
 				5D7A1FA92B987C5A00FADCA8 /* DetailViewController.swift in Sources */,
 				5D7A1FAD2B98812600FADCA8 /* BreedDetails.swift in Sources */,
+				5D7DF3B32BAAE94C004B562B /* extension DVC.swift in Sources */,
 				5DB901152BA186DD006BBDF2 /* ImageService.swift in Sources */,
 				5D79E4532B8CD1D000A37687 /* Model.swift in Sources */,
 				5D79E4442B8CB48300A37687 /* DemoDogsApp.xcdatamodeld in Sources */,
@@ -336,7 +376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DemoDogsApp/Info.plist;
+				INFOPLIST_FILE = DemoDogsApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -362,7 +402,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DemoDogsApp/Info.plist;
+				INFOPLIST_FILE = DemoDogsApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
